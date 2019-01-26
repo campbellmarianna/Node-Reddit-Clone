@@ -1,0 +1,11 @@
+User Stories:
+- User can create a post
+- User can see all post
+- User can make comments on a post
+- User can create subreddits
+- User can create a post on a subreddit
+- User can see all subreddits
+- User can sign up or login
+- User can the posts and comments of an author
+- User can make comments on comments
+- User can vote a post up or down

@@ -1,0 +1,23 @@
+{
+  "name": "redditclone",
+  "version": "1.0.0",
+  "description": "To get into the real meat and potatoes of web development I will be building directly upon Resourceful and Restful patterns + multiply and associate resources by building a clone of Reddit:",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/campbellmarianna/Reddit-Clone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/campbellmarianna/Reddit-Clone/issues"
+  },
+  "homepage": "https://github.com/campbellmarianna/Reddit-Clone#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0"
+  }
+}
