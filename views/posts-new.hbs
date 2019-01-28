@@ -1,0 +1,30 @@
+<!-- views/posts-new.hbs-->
+<!-- Yeshua washes all of my sin. He washes away all my sin -->
+<!-- attributes: title, url, summary -->
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <form action="/posts/new" method="post">
+            <fieldset>
+                <legend>New Post</legend>
+                <!-- TITLE -->
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" placeholder="Title">
+                </div>
+                <!-- URL -->
+                <div class="form-group">
+                    <label for="url">URL</label>
+                    <input type="text" class="form-control" id="url" placeholder="https://www.google.com">
+                </div>
+                <!-- SUMMARY -->
+                <div class="form-group">
+                    <label for="summary">Summary</label>
+                    <textarea class="form-control" rows="3" id="summary"></textarea>
+                </div>
+                <div class="text-right">
+                    <button type="submit" class="btn btn-primary">Create Post</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

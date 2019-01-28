@@ -1,4 +1,4 @@
-# Reddit Clone
+# Node Reddit Clone
 
 To get into the real meat and potatoes of web development I will be building directly upon Resourceful and Restful patterns + multiply and associate resources by building a clone of Reddit:
 
