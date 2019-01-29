@@ -21,6 +21,9 @@ router.use(expressValidator());
 const postsController = require('./controllers/posts');
 postsController(router);
 
+// Import Model
+const Post = require('./models/post');
+
 router.listen(3000, () => {
     console.log('App listening on port 3000!')
 })
