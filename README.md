@@ -17,8 +17,8 @@ To get into the real meat and potatoes of web development I will be building dir
 4. JSON Web Tokens (JWT)
 
 ## ToDo:
-- [ ] Create a post
-- [ ] Show all posts
+- [x] Create a post
+- [x] Show all posts
 - [ ] Comment on posts
 - [ ] Make comments on comments
 - [ ] Associate posts, comments, and votes with their author
