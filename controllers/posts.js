@@ -56,4 +56,15 @@ module.exports = router => {
             console.log(err.message);
         });
     });
+
+    // SUBREDDIT
+    router.get("/n/:subreddit", function(req, res) {
+        Post.find({ subreddit: req.params.subreddit })
+            .then(posts => {
+                res.render("posts-index", { posts });
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    });
 };

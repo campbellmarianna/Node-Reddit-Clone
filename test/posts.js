@@ -11,18 +11,18 @@ const server = require('../server');
 chai.should();
 chai.use(chaiHttp);
 
-// Post that we'll use for testing purposes
-const newPost = {
-    title: 'post title',
-    url: 'https://www.google.com',
-    summary: 'post summary',
-};
-
 describe('Posts', function() {
     const agent = chai.request.agent(server);
+    // Post that we'll use for testing purposes
+    const newPost = {
+        title: 'post title',
+        url: 'https://www.google.com',
+        summary: 'post summary',
+    };
     it("should create with valid attributes at POST /posts/new", function (done) {
         // Check how many posts there are now
         const initialDocCount = Post.estimatedDocumentCount();
+        .then(function (initialDocCount) {
             chai.request(router)
                 .post("/posts/new")
                 // This line fakes a form post,
@@ -43,7 +43,12 @@ describe('Posts', function() {
                         done(err);
                     });
             })
-
+            .catch(function (err) {
+                done(err);
+            });
+        })
+        .catch(function (err) {
+            done(err);
         });
     });
 });
