@@ -25,7 +25,7 @@ To get into the real meat and potatoes of web development I will be building dir
 - [ ] Search
 - [ ] Sign up
 - [ ] Log in
-- [ ] Create subreddit
+- [X] Create subreddit
 - [ ] Create a post on a subreddit
-- [ ] Show all subreddits
+- [X] Show all subreddits
 - [ ] Vote a post up or down

@@ -24,6 +24,9 @@ postsController(router);
 // Import Model
 const Post = require('./models/post');
 
+// ADD COMMENTS CONTROLLER
+require('./controllers/comments.js')(router);
+
 router.listen(3000, () => {
     console.log('App listening on port 3000!')
 })

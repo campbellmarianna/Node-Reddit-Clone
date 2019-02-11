@@ -9,3 +9,6 @@ User Stories:
 - User can the posts and comments of an author
 - User can make comments on comments
 - User can vote a post up or down
+----
+Get other's insight (office hours):
+- Get the Save comment button to the button right.
