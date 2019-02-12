@@ -19,12 +19,12 @@ To get into the real meat and potatoes of web development I will be building dir
 ## ToDo:
 - [x] Create a post
 - [x] Show all posts
-- [ ] Comment on posts
+- [x] Comment on posts
 - [ ] Make comments on comments
 - [ ] Associate posts, comments, and votes with their author
 - [ ] Search
-- [ ] Sign up
-- [ ] Log in
+- [x] Sign up
+- [x] Log in
 - [X] Create subreddit
 - [ ] Create a post on a subreddit
 - [X] Show all subreddits
