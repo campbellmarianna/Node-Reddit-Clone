@@ -25,4 +25,10 @@ module.exports = (router) => {
                 return res.status(400).send({ err: err });
             });
     });
+
+    // LOGOUT
+    router.get('/logout', (req, res) => {
+        res.clearCookie('nToken');
+        res.redirect('/');
+    });
 };
