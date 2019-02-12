@@ -5,9 +5,11 @@ const {check, validationResult } = require('express-validator/check');
 module.exports = router => {
     // ROOT ROUTE
     router.get('/', (req, res) => {
+        var currentUser = req.user;
+
         Post.find({})
         .then(posts => {
-            res.render("posts-index", { posts });
+            res.render("posts-index", { posts, currentUser });
         })
         .catch(err => {
             console.log(err.message);
@@ -20,29 +22,19 @@ module.exports = router => {
     })
 
     // CREATE
-    router.post('/posts/new', //[
-        // title must be at least 5 chars long
-        // check('title').isLength({ min: 5}),
-        // summary must be at least 10 chars long
-        // check('summary').isLength({ min: 5 })
-    // ]
-     (req,res) => {
-        // Finds the validation errors in this request and wraps them in an object with handy functions
-        // const errors = validationResult(req);
-        // if (!errors.isEmpty()) {
-            // return res.status(422).json({ errors: errors.array() });
-        // }
-        // CHECK DATA
-        console.log(req.body);
-        // INSTANTIATE INSTANCE OF POST MODEL
-        const post = new Post(req.body)
-        // console.log(req.body);
-        // SAVE INSTANCE OF POST MODEL TO DB
-        post.save((err, post) => {
-            // REDIRECT TO THE ROOT
-            return res.redirect('/');
-        // })
-        })
+    router.post('/posts/new', (req,res) => {
+         if (req.user) {
+             // INSTANTIATE INSTANCE OF POST MODEL
+             const post = new Post(req.body);
+
+             // SAVE INSTANCE OF POST MODEL TO DB
+             post.save(function(err, post) {
+                 // REDIRECT TO THE ROOT
+                 return res.redirect('/');
+             });
+         } else {
+             return res.status(401); // UNAUTHORIZED
+         }
     });
 
     // SHOW

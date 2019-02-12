@@ -29,6 +29,21 @@ router.use(expressValidator());
 
 router.use(cookieParser()); // ADD THIS AFTER YOU INITIALIZE EXPRESS
 
+// ADD CUSTOM MIDDLEWARE
+var checkAuth = (req, res, next) => {
+  console.log("Checking authentication");
+  if (typeof req.cookies.nToken === "undefined" || req.cookies.nToken === null) {
+    req.user = null;
+  } else {
+    var token = req.cookies.nToken;
+    var decodedToken = jwt.decode(token, { complete: true }) || {};
+    req.user = decodedToken.payload;
+  }
+
+  next();
+};
+router.use(checkAuth);
+
 const postsController = require('./controllers/posts');
 postsController(router);
 
@@ -40,6 +55,7 @@ require('./controllers/comments.js')(router);
 
 // ADD AUTH CONTROLLER
 require('./controllers/auth.js')(router);
+
 
 router.listen(3000, () => {
     console.log('App listening on port 3000!')
