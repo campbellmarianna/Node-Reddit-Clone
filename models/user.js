@@ -7,7 +7,8 @@ const UserSchema = new Schema({
     createdAt: { type: Date},
     updatedAt: { type: Date},
     password: { type: String, select: false},
-    username: { type: String, required: true }
+    username: { type: String, required: true },
+    posts: [{ type: Schema.Types.ObjectId, ref: "Post" }]
 });
 
 // MUST USE FUNCTION HERE! => FUNCTIONS DO NOT BIND THIS!
