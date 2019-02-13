@@ -44,6 +44,7 @@ var checkAuth = (req, res, next) => {
 };
 
 router.use(checkAuth);
+router.use(express.static('public'));
 
 // Import Model
 const Post = require('./models/post');
