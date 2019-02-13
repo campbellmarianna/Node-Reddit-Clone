@@ -42,19 +42,18 @@ var checkAuth = (req, res, next) => {
 
   next();
 };
-router.use(checkAuth);
 
-const postsController = require('./controllers/posts');
-postsController(router);
+router.use(checkAuth);
 
 // Import Model
 const Post = require('./models/post');
 
-// ADD COMMENTS CONTROLLER
+// ADD CONTROLLERS
+require('./controllers/posts')(router);
 require('./controllers/comments.js')(router);
-
-// ADD AUTH CONTROLLER
 require('./controllers/auth.js')(router);
+require('./controllers/replies.js')(router);
+
 
 
 router.listen(3000, () => {
