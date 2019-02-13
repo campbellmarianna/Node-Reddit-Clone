@@ -4,7 +4,6 @@ const Post = require('../models/post');
 module.exports = function(router) {
     // CREATE COMMENT
     router.post("/posts/:postId/comments", function(req, res) {
-        console.log(req.body)
         // INSTANTIATE INSTANCE OF MODEL
         const comment = new Comment(req.body);
         comment.author = req.user._id;
@@ -12,15 +11,19 @@ module.exports = function(router) {
         comment
             .save()
             .then(comment => {
-                return Post.findById(req.params.postId);
+                return Promise.all([
+                    Post.findById(req.params.postId)
+                ]);
             })
-            .then(post => {
+            .then(([post, user]) => {
                 post.comments.unshift(comment);
-                return post.save();
+                return Promise.all([
+                    post.save()
+                ]);
             })
             .then(post => {
-                // REDIRECT TO THE ROOT
-                return res.redirect(`/posts/${post._id}`);
+                // REDIRECT
+                res.redirect(`/posts/${req.params.postId}`);
             })
             .catch(err => {
                 console.log(err);
